@@ -1,24 +1,23 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { UserInputComponent } from './user-input/user-input.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, UserInputComponent],
+  imports: [HeaderComponent, UserInputComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
 
-  calculateInvestmentResults(data: {
+  onCalculateInvestmentResults(data: {
     initialInvestment: number,
     duration: number,
     expectedReturn: number,
     annualInvestment: number
   }) {
     const annualData = [];
-    const {initialInvestment, annualInvestment, expectedReturn, duration} = data;
+    const { initialInvestment, annualInvestment, expectedReturn, duration } = data;
     let investmentValue = initialInvestment;
 
     for (let i = 0; i < duration; i++) {
@@ -37,6 +36,7 @@ export class AppComponent {
       });
     }
 
-    return annualData;
+    console.log(annualData);
   }
+
 }
